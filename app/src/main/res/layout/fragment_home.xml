@@ -233,7 +233,11 @@
                     android:layout_weight="6"
                     android:orientation="vertical">
 
-                    <ImageView
+                    <pl.pzienowicz.autoscrollviewpager.AutoScrollViewPager
+                        android:id="@+id/vpNews"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                  <!-- <ImageView
                         android:id="@+id/iv_newsimage"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
@@ -250,14 +254,10 @@
                         android:paddingLeft="5dp"
                         android:text="Boscore 2018\nembraces Harmony"
                         android:textColor="@color/colorBlue"
-                        android:textSize="14sp" />
+                        android:textSize="14sp" />-->
                 </LinearLayout>
             </LinearLayout>
 
-            <!--<LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1.5"></LinearLayout>-->
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"

@@ -2,23 +2,15 @@ package com.integro.rsgs.model;
 
 import java.io.Serializable;
 
-public class News implements Serializable {
-    private String date;
+public class NewsImage implements Serializable {
+
     private String image;
+
     private String updated_at;
-    private String description;
+
     private String id;
-    private String title;
 
-    public String getDate ()
-    {
-        return date;
-    }
-
-    public void setDate (String date)
-    {
-        this.date = date;
-    }
+    private String news_id;
 
     public String getImage ()
     {
@@ -40,16 +32,6 @@ public class News implements Serializable {
         this.updated_at = updated_at;
     }
 
-    public String getDescription ()
-    {
-        return description;
-    }
-
-    public void setDescription (String description)
-    {
-        this.description = description;
-    }
-
     public String getId ()
     {
         return id;
@@ -60,15 +42,14 @@ public class News implements Serializable {
         this.id = id;
     }
 
-    public String getTitle ()
+    public String getNews_id ()
     {
-        return title;
+        return news_id;
     }
 
-    public void setTitle (String title)
+    public void setNews_id (String news_id)
     {
-        this.title = title;
+        this.news_id = news_id;
     }
-
 
 }

@@ -5,6 +5,7 @@ import com.integro.rsgs.model.LayMissionList;
 import com.integro.rsgs.model.LeaderShipList;
 import com.integro.rsgs.model.MediaList;
 import com.integro.rsgs.model.MinistriesList;
+import com.integro.rsgs.model.NewsImageList;
 import com.integro.rsgs.model.NewsList;
 import com.integro.rsgs.model.NotificationList;
 import com.integro.rsgs.model.SocialActionList;
@@ -52,6 +53,10 @@ public interface ApiServices {
     @FormUrlEncoded
     @POST("rgs_media.php")
     Call<MediaList> getMediaList(@Field("updated_at")String updated_at);
+
+    @FormUrlEncoded
+    @POST("rgs_newsimages.php")
+    Call<NewsImageList> getNewsImageLIst(@Field("updated_at")String updated_at);
 
 
 

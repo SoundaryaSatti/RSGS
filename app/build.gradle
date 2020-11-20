@@ -5,7 +5,7 @@ android {
     buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "com.integro.rsgs"
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -48,11 +48,12 @@ dependencies {
     //load glide image
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     //AutoScrollView
+/*
     implementation('cn.trinea.android.view.autoscrollviewpager:android-auto-scroll-view-pager:1.1.2') {
         exclude module: 'support-v4'
+        implementation 'com.nineoldandroids:library:2.4.0'
     }
+*/
 
-    //  implementation 'com.github.demoNo:AutoScrollViewPager:v1.0.2'
-
-
+    implementation 'com.github.pzienowicz:androidx-auto-scroll-view-pager:1.1.0'
 }
