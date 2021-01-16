@@ -56,7 +56,7 @@ public interface ApiServices {
 
     @FormUrlEncoded
     @POST("rgs_newsimages.php")
-    Call<NewsImageList> getNewsImageLIst(@Field("updated_at")String updated_at);
+    Call<NewsImageList> getNewsImageLIst(@Field("news_id")String updated_at);
 
 
 

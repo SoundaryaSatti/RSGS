@@ -13,6 +13,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.integro.rsgs.R;
 import com.integro.rsgs.adapters.ViewPageAdapter;
 import com.integro.rsgs.model.LeaderShip;
@@ -30,14 +31,20 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import static com.integro.rsgs.firebase.MyFirebaseMessagingService.NEWS_KEY;
+import static com.integro.rsgs.firebase.MyFirebaseMessagingService.NOTIFICATION_KEY;
+
 public class MainActivity extends AppCompatActivity {
+
+    public static final String TAG = "MyFirebaseMsgService";
+
 
     ViewPager viewPager;
     TabLayout tabLayout;
     ViewPageAdapter adapter;
 
 
-    TextView tvWWR,tvLeaderShip,tvMinistries,tvMedia;
+    TextView tvWWR, tvLeaderShip, tvMinistries, tvMedia;
     ImageView ivCall, ivMail, ivFacebook;
 
 
@@ -66,11 +73,10 @@ public class MainActivity extends AppCompatActivity {
         ivCall = findViewById(R.id.iv_call);
         ivMail = findViewById(R.id.iv_mail);
         ivFacebook = findViewById(R.id.iv_facebook);
-        tvWWR=findViewById(R.id.tv_WWR);
-        tvLeaderShip=findViewById(R.id.tv_Leadership);
-        tvMinistries=findViewById(R.id.tv_Ministries);
-        tvMedia=findViewById(R.id.tv_Media);
-
+        tvWWR = findViewById(R.id.tv_WWR);
+        tvLeaderShip = findViewById(R.id.tv_Leadership);
+        tvMinistries = findViewById(R.id.tv_Ministries);
+        tvMedia = findViewById(R.id.tv_Media);
 
 
         adapter = new ViewPageAdapter(getSupportFragmentManager(), 4);
@@ -81,6 +87,20 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.getTabAt(2).setIcon(R.drawable.notifications);
         tabLayout.getTabAt(3).setIcon(R.drawable.www1);
 
+         FirebaseMessaging.getInstance().subscribeToTopic("gs");
+
+        boolean isFCMIntent = getIntent().getBooleanExtra(TAG, false);
+        if (isFCMIntent) {
+            String type = getIntent().getExtras().getString("type");
+            switch (type) {
+                case NEWS_KEY:
+                    viewPager.setCurrentItem(1);
+                    break;
+                case NOTIFICATION_KEY:
+                    viewPager.setCurrentItem(2);
+                    break;
+            }
+        }
         final int colorYellow = ContextCompat.getColor(getApplicationContext(), R.color.colorYellow);
         final int colorWhiite = ContextCompat.getColor(getApplicationContext(), R.color.colorWhite);
 
@@ -143,33 +163,33 @@ public class MainActivity extends AppCompatActivity {
         tvLeaderShip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentLeaderShip =new Intent(MainActivity.this,LeaderShipActivity.class);
+                Intent intentLeaderShip = new Intent(MainActivity.this, LeaderShipActivity.class);
                 startActivity(intentLeaderShip);
             }
         });
         tvMinistries.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentMinistries=new Intent(MainActivity.this,MinistriesActivity.class);
+                Intent intentMinistries = new Intent(MainActivity.this, MinistriesActivity.class);
                 startActivity(intentMinistries);
             }
         });
         tvMedia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentMedia =new Intent(MainActivity.this,MediaActivity.class);
+                Intent intentMedia = new Intent(MainActivity.this, MediaActivity.class);
                 startActivity(intentMedia);
             }
         });
     }
-    public void onBackPressed(){
+
+    public void onBackPressed() {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
         alertDialogBuilder.setTitle("Exit");
         AlertDialog.Builder builder = alertDialogBuilder.setMessage("Do you really want to exit?").setCancelable(false)
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which)
-                    {
+                    public void onClick(DialogInterface dialog, int which) {
                         //System.exit(0);
                         finish();
                     }
@@ -190,8 +210,8 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         return true;
     }
+
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
-
     }
 }

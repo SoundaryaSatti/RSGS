@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "313808739178",
+    "firebase_url": "https://bsco-seva-kendra.firebaseio.com",
+    "project_id": "bsco-seva-kendra",
+    "storage_bucket": "bsco-seva-kendra.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:313808739178:android:bc0ac7e9455f4b3cbe2313",
+        "android_client_info": {
+          "package_name": "com.integro.bsk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "313808739178-oabl7rngbborovk9f8mc111j5tii99mk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACloKyrU07p8fZcp_WWfHhRkadIcst81o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "313808739178-oabl7rngbborovk9f8mc111j5tii99mk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

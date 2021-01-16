@@ -10,6 +10,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +18,7 @@ import com.integro.rsgs.R;
 import com.integro.rsgs.activities.EducationActivity;
 import com.integro.rsgs.activities.LayMissionActivity;
 import com.integro.rsgs.activities.SocialActionActivity;
+import com.integro.rsgs.activities.WebActivity;
 import com.integro.rsgs.adapters.NewsViewPagerAdapter;
 import com.integro.rsgs.api.ApiClients;
 import com.integro.rsgs.api.ApiServices;
@@ -33,6 +35,7 @@ import retrofit2.Response;
 public class HomeFragment extends Fragment implements View.OnClickListener {
 
     TextView tvProject, tvOutReach, tvLayMission, tvEducation, tvSocialAction;
+    ImageView ivDonate;
 
     private ApiServices apiServices;
     private AutoScrollViewPager viewPagerNews;
@@ -55,11 +58,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         tvLayMission = view.findViewById(R.id.tv_laymission);
         tvEducation = view.findViewById(R.id.tv_education);
         tvSocialAction = view.findViewById(R.id.tv_socialaction);
+        ivDonate=view.findViewById(R.id.iv_donate);
 
 
         tvLayMission.setOnClickListener(this);
         tvEducation.setOnClickListener(this);
         tvSocialAction.setOnClickListener(this);
+        ivDonate.setOnClickListener(this);
         getNewsList();
         return view;
     }
@@ -84,6 +89,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 Intent intentSocialAction = new Intent(getContext(), SocialActionActivity.class);
                 startActivity(intentSocialAction);
                 break;
+            case R.id.iv_donate:
+                Intent intentDonate = new Intent(getContext(), WebActivity.class);
+                String url = "http://snehadhara.goodshepherdbangalore.org/payment.phpgoogle-services.json";
+                intentDonate.putExtra("TAG", url);
+                startActivity(intentDonate);
+                break;
+
         }
     }
     private void getNewsList() {

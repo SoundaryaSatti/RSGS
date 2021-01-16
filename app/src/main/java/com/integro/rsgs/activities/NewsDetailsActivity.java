@@ -31,8 +31,6 @@ public class NewsDetailsActivity extends AppCompatActivity {
     AutoScrollViewPager vpNewsImages;
     NewsImagesAdapterVp newsImagesAdapterVp;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +38,6 @@ public class NewsDetailsActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         newsImagesArrayList = new ArrayList<>();
-
         final  String TAG="NewsDetailsActivity";
         News news = (News) getIntent().getSerializableExtra("NEWS");
 
@@ -50,6 +47,7 @@ public class NewsDetailsActivity extends AppCompatActivity {
         TextView tvTitleND = findViewById(R.id.tv_newstitle);
         TextView tvDateND=findViewById(R.id.tv_newsdate);
         TextView tvDiscriptionND = findViewById(R.id.tv_newsdescription);
+        itemId=news.getId();
 
         tvDateND.setText(news.getDate());
         tvTitleND.setText(news.getTitle());

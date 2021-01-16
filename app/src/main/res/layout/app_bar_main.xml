@@ -17,6 +17,14 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorBlue"
             app:popupTheme="@style/AppTheme.PopupOverlay" >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="RGS"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/frankruhllibre_medium"/>
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
